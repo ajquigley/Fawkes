@@ -1,0 +1,5 @@
+<div>
+  <%= for slot <- @slots do %>
+  <%= render_slot(slot, [slot: slot, conn: @conn]) %>
+  <% end %>
+</div>

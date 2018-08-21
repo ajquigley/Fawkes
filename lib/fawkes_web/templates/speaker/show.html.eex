@@ -1,0 +1,8 @@
+<div>
+  <h4><%= link("#{@speaker.first} #{@speaker.last}", to: speaker_path(@conn, :show, @speaker.slug)) %></h4>
+  <p><%= @speaker.talk.title %></p>
+
+  <%= render(FawkesWeb.SharedView, "profile_meta.html", user: @speaker) %>
+
+  <div><%= @speaker.description %></div>
+</div>

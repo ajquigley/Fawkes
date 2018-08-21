@@ -1,0 +1,6 @@
+<section class="o-schedule-slot">
+  <section class="m-schedule-panel">
+    <%= SharedView.render_timespan(@slot) %>
+    <h3 class="panel-title"><%= @slot.event.name %></h3>
+  </section>
+</section>

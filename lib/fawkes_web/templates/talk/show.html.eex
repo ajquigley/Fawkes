@@ -1,0 +1,13 @@
+<div>
+  <h4><%= @talk.title %></h4>
+  <h5><%= link("#{@talk.speaker.first} #{@talk.speaker.last}", to: speaker_path(@conn, :show, @talk.speaker.slug))  %></h5>
+  <p>Located in: <%= @talk.location.name %></p>
+  <p>Time: <%= Timex.format!(@talk.slot.start, "%A %B %e, %Y", :strftime) %> from <%= SharedView.render_timespan(@talk.slot) %></p>
+  <ul>
+    <li><%= link(@talk.category.name, to: category_path(@conn, :show, @talk.category.slug)) %></li>
+    <li><%= link(@talk.audience.name, to: audience_path(@conn, :show, @talk.audience.slug)) %></li>
+  </ul>
+  <div>
+    <%= raw(@talk.description) %>
+  </div>
+</div>

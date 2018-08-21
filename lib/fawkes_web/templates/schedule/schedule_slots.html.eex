@@ -1,0 +1,9 @@
+<div>
+  <%= for {date, slots} <- @schedules do %>
+    <h1 class="m-date-header">
+      <span class="schedule-weekday"><%= Timex.format!(date, "%a", :strftime) %></span>
+      <span class="schedule-date"><%= Timex.format!(date, "%e", :strftime) %></span>
+    </h1>
+    <%= render(__MODULE__, "date.html", Map.put(assigns, :slots, slots)) %>
+  <% end %>
+</div>

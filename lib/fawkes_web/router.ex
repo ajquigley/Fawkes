@@ -17,6 +17,13 @@ defmodule FawkesWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    resources("/schedule", ScheduleController, only: [:index, :show])
+    resources("/audience", AudienceController, only: [:show])
+    resources("/category", CategoryController, only: [:show])
+    resources("/location", LocationController, only: [:show])
+    resources("/speaker", SpeakerController, only: [:index, :show])
+    resources("/talk", TalkController, only: [:show])
   end
 
   # Other scopes may use custom stacks.

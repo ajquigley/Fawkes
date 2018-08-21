@@ -23,6 +23,7 @@ defmodule FawkesWeb do
       import Plug.Conn
       import FawkesWeb.Router.Helpers
       import FawkesWeb.Gettext
+      alias Fawkes.Schedule
     end
   end
 
@@ -40,6 +41,7 @@ defmodule FawkesWeb do
       import FawkesWeb.Router.Helpers
       import FawkesWeb.ErrorHelpers
       import FawkesWeb.Gettext
+      alias FawkesWeb.SharedView
     end
   end
 

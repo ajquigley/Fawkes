@@ -1,0 +1,11 @@
+<%= for speaker <- @speakers do %>
+<div>
+  <%= img_tag(speaker.image) %>
+  <h4><%= link("#{speaker.first} #{speaker.last}", to: speaker_path(@conn, :show, speaker.slug)) %></h4>
+  <p><%= speaker.talk.title %></p>
+
+  <%= render(FawkesWeb.ScheduleView, "profile_meta.html", user: speaker) %>
+
+  <div><%= speaker.description %></div>
+</div>
+<% end %>

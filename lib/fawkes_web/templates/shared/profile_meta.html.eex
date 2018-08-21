@@ -1,0 +1,13 @@
+<%= unless is_nil(@user.github) && is_nil(@user.twitter) && is_nil(@user.company) && is_nil(@user.title) do %>
+  <ul>
+    <%= unless is_nil(@user.github) do %>
+    <li>Github: <%= link(@user.github, to: "https://github.com/#{@user.github}/") %></li>
+    <% end %>
+    <%= unless is_nil(@user.twitter) do %>
+    <li>Twitter: <%= link(@user.twitter, to: "https://twitter.com/#{@user.twitter}/") %></li>
+    <% end %>
+    <%= unless @user.title |> employment(@user.company) |> is_nil do %>
+    <li><%= employment(@user.title, @user.company) %></li>
+    <% end %>
+  </ul>
+<% end %>
