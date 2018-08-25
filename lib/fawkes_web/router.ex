@@ -26,6 +26,12 @@ defmodule FawkesWeb.Router do
     resources("/talk", TalkController, only: [:show])
   end
 
+  scope "/signup", FawkesWeb.Signup, as: :signup do
+    pipe_through :browser
+
+    resources "/", UserController, only: [:new, :create]
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", FawkesWeb do
   #   pipe_through :api

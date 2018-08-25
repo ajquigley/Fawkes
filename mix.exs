@@ -44,6 +44,10 @@ defmodule Fawkes.Mixfile do
 
       # For datetime formating
       {:timex, "~> 3.3"},
+
+      # For authentication
+      {:bcrypt_elixir, "~> 1.0"},
+      {:comeonin, "~>4.0"},
     ]
   end
 
