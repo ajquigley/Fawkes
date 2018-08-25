@@ -14,6 +14,10 @@ config :fawkes, FawkesWeb.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../assets", __DIR__)]]
 
+config :fawkes, FawkesWeb.Guardian.Tokenizer,
+                issuer: "fawkes",
+                secret_key: "our random string"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed

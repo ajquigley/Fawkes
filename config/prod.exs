@@ -18,6 +18,12 @@ config :fawkes, FawkesWeb.Endpoint,
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :fawkes,
+       FawkesWeb.Guardian.Tokenizer,
+       issuer: "fawkes",
+       secret_key: Map.fetch!(System.get_env(),
+                              "GUARDIAN_KEY")
+
 # Do not print debug messages in production
 config :logger, level: :info
 

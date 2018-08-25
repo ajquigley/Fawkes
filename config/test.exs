@@ -6,6 +6,10 @@ config :fawkes, FawkesWeb.Endpoint,
   http: [port: 4001],
   server: false
 
+config :fawkes, FawkesWeb.Guardian.Tokenizer,
+                issuer: "fawkes",
+                secret_key: "our random string"
+
 # Print only warnings and errors during test
 config :logger, level: :warn
 

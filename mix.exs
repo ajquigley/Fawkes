@@ -48,6 +48,7 @@ defmodule Fawkes.Mixfile do
       # For authentication
       {:bcrypt_elixir, "~> 1.0"},
       {:comeonin, "~>4.0"},
+      {:guardian, "~> 1.0"},
     ]
   end
 
