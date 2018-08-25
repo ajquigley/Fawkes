@@ -4,6 +4,7 @@ defmodule Fawkes.Schedule.Speaker do
   """
 
   use Ecto.Schema
+  use Arc.Ecto.Schema
   import Ecto.Changeset
   alias Fawkes.Repo.Symbol, as: SymbolType
 
@@ -20,6 +21,7 @@ defmodule Fawkes.Schedule.Speaker do
     field(:last, :string)
     field(:slug, SymbolType)
     field(:twitter, :string)
+    field(:image, Fawkes.Uploader.Image.Type)
 
     has_one(:talk, Fawkes.Schedule.Talk)
 
@@ -29,8 +31,9 @@ defmodule Fawkes.Schedule.Speaker do
   @doc false
   def changeset(speaker, attrs) do
     speaker
-    |> cast(attrs, [:slug, :first, :last, :company, :github, :twitter, :description])
-    |> validate_required([:slug, :first, :last, :description])
+    |> cast(attrs, [:slug, :image, :first, :last, :company, :github, :twitter, :description])
+    |> cast_attachments(attrs, [:image])
+    |> validate_required([:slug, :image, :first, :last, :description])
     |> unique_constraint(:slug)
   end
 end

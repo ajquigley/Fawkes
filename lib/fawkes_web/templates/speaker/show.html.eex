@@ -1,4 +1,10 @@
 <div>
+  <%=
+    {@speaker.image, @speaker}
+    |> Fawkes.Uploader.Image.url()
+    |> img_tag()
+  %>
+
   <h4><%= link("#{@speaker.first} #{@speaker.last}", to: speaker_path(@conn, :show, @speaker.slug)) %></h4>
   <p><%= @speaker.talk.title %></p>
 

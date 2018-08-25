@@ -27,6 +27,13 @@ defmodule FawkesWeb.Router do
     post("/logout", Auth.UserController, :delete)
   end
 
+  scope "/", FawkesWeb, as: :membership do
+    pipe_through [:browser, :guardian, :ensure_auth]
+
+    resources("/profile", ProfileController, only: [:edit, :update], singleton: true)
+  end
+
+
   scope "/", FawkesWeb do
     pipe_through [:browser, :guardian]
 
@@ -38,6 +45,7 @@ defmodule FawkesWeb.Router do
     resources("/location", LocationController, only: [:show])
     resources("/speaker", SpeakerController, only: [:index, :show])
     resources("/talk", TalkController, only: [:show])
+    resources("/member", ProfileController, only: [:index, :show])
   end
 
   scope "/signup", FawkesWeb.Signup, as: :signup do

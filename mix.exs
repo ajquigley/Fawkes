@@ -49,6 +49,15 @@ defmodule Fawkes.Mixfile do
       {:bcrypt_elixir, "~> 1.0"},
       {:comeonin, "~>4.0"},
       {:guardian, "~> 1.0"},
+
+      # For S3 integration and image uploads
+      {:arc, "~> 0.10"},       # File upload
+      {:arc_ecto, "~> 0.10"},  # Ecto Type
+      {:ex_aws, "~> 2.0"},     # Aws
+      {:ex_aws_s3, "~> 2.0"},  # S3
+      {:hackney, "~> 1.9"},    # API HTTP client
+      {:poison, "~> 3.0"},     # Fast JSON Parser
+      {:sweet_xml, "~> 0.6"}   # XML Parsing
     ]
   end
 

@@ -1,0 +1,5 @@
+<ul>
+  <%= for profile <- @profiles do %>
+  <li><%= link("#{profile.first} #{profile.last}", to: profile_path(@conn, :show, profile.slug)) %></li>
+  <% end %>
+</ul>

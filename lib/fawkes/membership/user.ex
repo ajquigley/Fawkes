@@ -3,6 +3,7 @@ defmodule Fawkes.Membership.User do
 
   schema "users" do
     field(:username, :string)
+    has_one(:profile, Fawkes.Membership.Profile)
 
     timestamps()
   end
